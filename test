@@ -1,0 +1,15 @@
+a = 250
+d = 250
+def setup () :
+    size(500,500)
+def draw () :
+    global a,d
+    a=a+1
+    d=d-1
+    circle(a,a,20)
+    circle(d,a,20)
+    circle(a,d,20)
+    circle(d,d,20)
+
+
+    
