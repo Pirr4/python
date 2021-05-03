@@ -1,0 +1,7 @@
+a = 1
+if a == 1 :
+    background(0,255,0)
+elif a>1 and a<10 :
+    background(0,0,255)
+else :
+    background(255,0,0)
