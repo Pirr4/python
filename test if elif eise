@@ -1,4 +1,4 @@
-a = 1
+a = random(1,16)
 if a == 1 :
     background(0,255,0)
 elif a>1 and a<10 :
