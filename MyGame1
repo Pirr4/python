@@ -4,46 +4,76 @@ s = 0
 d = 0
 r = True
 active = False
+game = True
 x1 = 0
 y1 = 0
+vx = 450
+vy = 400
+g = 'Game over'
 def setup () :
     size (500,500)
     textSize(50)
     frameRate(60)
 def draw () :
     background(255)
-    global x,y,active,ax,ay,x1,y1,r,d
+    global x,y,active,ax,ay,x1,y1,r,d,vx,vy,game
 #Спавн яблочек
-    if r == True :
-        x1=random(5,495)
-        y1=random(5,495)
-        active = True
-        r = False
-    if active:
-        fill(0,0,255)
-        circle(x1,y1,25)
+    if game:
+        if r == True :
+            x1=random(5,495)
+            y1=random(5,495)
+            active = True
+            r = False
+        if active:
+            fill(0,0,255)
+            circle(x1,y1,25)
 # Сбор яблочек
-    ax=x-x1
-    ay=y-y1
-    if sqrt(ax*ax-ay*ay) <= 10 :
-        d+=1
-        active = False
-        r=True
+        ax=x-x1
+        ay=y-y1
+        if sqrt(ax*ax-ay*ay) <= 10 :
+            d+=1
+            active = False
+            r=True
+# Клетка
+        if vy > y :
+            vy = vy - 0.5
+        if vy < y :
+            vy = vy + 0.5
+        if vx > x :
+            vx = vx - 0.5
+        if vx < x :
+            vx = vx + 0.5
+        fill(255,0,0)
+        circle(vx,vy,40)
+        sx=x-vx
+        sy=y-vy
+        p1 = sqrt(sx*sx-sy*sy)
+        p2 = sqrt(sy*sy-sx*sx)
+        print(sqrt(sx*sx-sy*sy))
+        print(sqrt(sy*sy-sx*sx))
+        if p1 == 31 :
+            game = False 
+        if p2 == 31 :
+            game = False
 # Стены
-    if y == 500 :
-        y = y - 5
-    if y == 0 :
-        y = y + 5
-    if x == 500 :
-        x = x - 5
-    if x == 0 :
-        x = x + 5
+        if y == 500 :
+            y = y - 10
+        if y == 0 :
+            y = y + 10
+        if x == 500 :
+            x = x - 10
+        if x == 0 :
+            x = x + 10
 # Персонаж
-    fill(0,255,0)
-    circle (x,y,25)
+        fill(0,255,0)
+        circle (x,y,25)
 #Баллы
-    fill(0)
-    text(d,20,60)
+        fill(0)
+        text(d,20,60)
+    else :
+        background(255,0,0)
+        fill(0)
+        text(g,20,60)
 # Управление    
 def keyPressed () :
     global x,y,x1,y1
@@ -55,4 +85,3 @@ def keyPressed () :
         x=x-10
     if keyCode == DOWN :
         y=y+10
-
