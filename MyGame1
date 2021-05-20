@@ -48,10 +48,11 @@ def draw () :
 def keyPressed () :
     global x,y,x1,y1
     if keyCode == UP :
-        y=y-5
+        y=y-10
     if keyCode == RIGHT :
-        x=x+5
+        x=x+10
     if keyCode == LEFT :
-        x=x-5
+        x=x-10
     if keyCode == DOWN :
-        y=y+5
+        y=y+10
+
