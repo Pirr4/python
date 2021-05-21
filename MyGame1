@@ -34,6 +34,10 @@ def draw () :
             d+=1
             active = False
             r=True
+        if sqrt(ay*ay-ax*ax) <= 10 :
+            d+=1
+            active = False
+            r=True
 # Клетка
         if vy > y :
             vy = vy - 0.5
@@ -49,8 +53,6 @@ def draw () :
         sy=y-vy
         p1 = sqrt(sx*sx-sy*sy)
         p2 = sqrt(sy*sy-sx*sx)
-        print(sqrt(sx*sx-sy*sy))
-        print(sqrt(sy*sy-sx*sx))
         if p1 == 31 :
             game = False 
         if p2 == 31 :
