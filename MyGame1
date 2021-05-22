@@ -53,9 +53,9 @@ def draw () :
         sy=y-vy
         p1 = sqrt(sx*sx-sy*sy)
         p2 = sqrt(sy*sy-sx*sx)
-        if p1 == 31 :
+        if p1 == 30 :
             game = False 
-        if p2 == 31 :
+        if p2 == 30 :
             game = False
 # Стены
         if y == 500 :
