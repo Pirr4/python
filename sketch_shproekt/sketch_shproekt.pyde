@@ -1,18 +1,19 @@
 x = 250
 y = 250
+vx = 450
+vy = 450 
 s = 0
 d = 0
 r = True
 active = False
-game = True
+game = False
 x1 = 0
 y1 = 0
-vx = 450
-vy = 450
-g = 'Game over'
+g = 'Game by Pirr4'
 slo = False
 vsx = 0.5
 vsy = 0.5
+pers = False
 mp = [[1,0,0,0,0,1,0,0,0,0],
       [0,0,0,0,0,0,0,1,0,1],
       [0,0,0,0,0,0,0,0,0,0],
@@ -90,13 +91,23 @@ def draw () :
 #Баллы
         fill(0)
         text(d,20,60)
+#Меню
     else :
-        background(255,0,0)
+        background(0,255,0)
         fill(0)
-        text(g,20,60)
+        text('Game by Pirr4',20,60)
+        text('Press R to restart',20,110)
+        text('Your score:' + str(d),20,170)
 # Управление    
 def keyPressed () :
-    global x,y,x1,y1
+    global x,y,x1,y1,game,x,y,vx,vy,d
+    if key == 'r' or key == 'R' :
+        x = 250
+        y = 250
+        vx = 450
+        vy = 450
+        d = 0 
+        game = True
     if keyCode == UP :
         y=y-10
     if keyCode == RIGHT :
